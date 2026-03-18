@@ -1,0 +1,83 @@
+Let's make a game!
+	name:Bears Paradise
+	by:JNBearbear
+	desc:In this idle game you are tasked to make the bears "paradise". For my favorite stuffed animal, Bearbear.
+	created:02/26/2026
+	version:0.0
+
+CSS
+#game.on 
+{
+    background-size: 100% 100%;
+    image-rendering: pixelated;
+}
+
+.buildingIconSze
+{
+	height:64px;
+	width:64px;
+}
+
+Settings
+	background:https://file.garden/aaDuv0xc7CC-4jiy/Bears%20Paradise/Bearbear67
+	stylesheet:stuff/bigBlue.css
+
+Buildings
+	*workerBee|workerBees
+		name:Worker Bee|Worker Bees
+		desc:Bees that convert pollen into honey make sure to treat them with love and care or else.
+		on tick:yield 0.25 honey
+		cost:20 honey
+		icon:https://file.garden/aaDuv0xc7CC-4jiy/Bears%20Paradise/Bee
+		icon class:buildingIconSize
+	*flower|flowers
+		name:Flower|Flowers
+		desc:A plant that allows you to get more pollen thus leading to more honey!
+		on tick:yield 2 honey
+		cost:100 honey
+		icon:https://file.garden/aaDuv0xc7CC-4jiy/Bears%20Paradise/flower
+		icon class:buildingSizeIcon
+	*flyer|flyers
+		name:Flyer|Flyers
+		desc:Work Advertisements for the Bears paradise.
+		on tick:yield 10 honey
+		cost:1000 honey
+		icon:https://file.garden/aaDuv0xc7CC-4jiy/Bears%20Paradise/Flyers
+		icon class:buildingSizeIcon
+
+Resources
+	*honey
+		name:Honey
+		desc:The economy here doesn't work with coins but honey? Makes sense because their bears.
+
+Buttons
+	*honeyButton
+		on click:yield 1 honey
+		class:bigButton hasFlares
+		icon:https://file.garden/aaDuv0xc7CC-4jiy/Bears%20Paradise/Beehive
+
+Upgrades
+	*queenBee
+		name:Queen Bee
+		desc:She is basically the manager of the Worker Bees you can bribe her with a bonus to push the other bees to do work faster.
+		passive:multiply yield of workerBees by 2
+		cost:120 honey
+	*fertilizer
+		name:Fertilizer
+		desc:Increases the growth rate of flowers by double!
+		passive:multiply yield of flowers by 2
+		cost:600 honey
+
+Achievements
+	*beeKeeper
+		name:Bee Keeper
+		desc:You bought a bee! You're beginning your own army!
+		req:have workerBees
+
+Shinies
+	*bearBear
+		name:Bearbear
+		on click:yield (random(honey:ps*300,honey:ps*500)) honey
+		frequency:5
+		movement:growShrink pulse:1 bobVertical:0.25 bobHorizontal:0.25 anywhere
+		class:hasFlares
